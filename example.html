@@ -1,0 +1,27 @@
+<div class="container" data-ng-controller="HeaderController" data-ng-init="init();">
+    
+    <nav class=" navbar-inner" role="navigation" data-ng-class="{transparent: $root.homepage}">
+        <!--Logged-out Users Menu-->
+        <ul class="nav navbar-nav navbar-right pull-right" data-ng-if="!$user.loggedIn">
+            <li href="#!/join" match-url>
+                <a ui-sref="users.join" tabindex="-1" translate>CORE.JOIN</a>
+            </li>
+            <li href="#!/login" match-url>
+                <a ui-sref="users.login" tabindex="-1" translate>CORE.LOGIN</a>
+            </li>
+        </ul>
+
+        <!--Logged-in Users Menu-->
+        <ul class="nav navbar-nav navbar-left pull-left" data-ng-if="$user.loggedIn">
+            <li href="#!/myarea" match-url>
+                <a ui-sref="myarea" tabindex="-1" translate>CORE.HOME</a>
+            </li>
+            <li href="#!/discover" match-url>
+                <a ui-sref="discover" tabindex="-1" translate>CORE.DISCOVER</a>
+            </li>
+            <li href="#!/discover/new_discover" match-url> // Both discover and new_discover will have the 'active' class when new_discover is selected
+                <a ui-sref="discover.new" tabindex="-1" translate>CORE.NEW_DISCOVER</a>
+            </li>
+        </ul>
+    </nav>
+</div>
