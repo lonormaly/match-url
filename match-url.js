@@ -7,7 +7,7 @@ angular.module('core').directive('matchUrl', ['$location', function ($location) 
             var functionToRun = $attr.matchUrlFunction; // run a function on match
             var classToAdd = $attr.matchUrlClass || 'active'; // set a specific class - defaults to active
             var elementPath = $element[0].href || $attr.ngHref || $attr.href;
-            var baseURI = $element[0].baseURI;
+            var baseURI = window.location.protocol + '//' + window.location.host + '/'; // Cross browser support
             
             $scope.$location = $location;
             $scope.$watch('$location.path()', function (locationPath) {
